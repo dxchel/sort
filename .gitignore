@@ -1,0 +1,9 @@
+.vscode
+<<<<<<< HEAD
+obj/
+*.exe
+=======
+*.exe
+*.o
+*.out
+>>>>>>> 41cb4fe (Initialized repo as this project is too old and not a repo)
