@@ -1,24 +1,9 @@
-<<<<<<< HEAD
-/*
- * Main program for testing common structures in C++.
- *
- * Made by David Xchel Morales Hurtado
- */
-#include "headers/test_structures.hpp"
-
-int main(int argc, char **argv){
-    // Run tests
-    //test_LinkedList();
-    exit(test_Tree());
-}
-
-=======
 #include "headers/header.hpp"
 
 int main(int argc, char** argv){
 	srand(clock());
 	int s;
-	if(argc == 1) s = rand()%100000 + 1;
+	if(argc == 1) s = rand()%20 + 1;
 	else s = atoi(argv[1]);
 	int a[s],b[s],c[s];
 	std::thread *th[3];
@@ -90,7 +75,15 @@ int main(int argc, char** argv){
 	//printer(c, s);
 
 	for(int i=0;i<3;i++) th[i]->join();
-	printf("Program finished!!!\n");
+	printf("Program finished!!! Here are the results!!\n");
+    printf("Bubble: [ ");
+    for(int i=0; i<s; i++) printf("%d ", a[i]);
+    printf("]\n");
+    printf("Merge: [ ");
+    for(int i=0; i<s; i++) printf("%d ", b[i]);
+    printf("]\n");
+    printf("Quick: [ ");
+    for(int i=0; i<s; i++) printf("%d ", c[i]);
+    printf("]\n");
 	return 0;
 }
->>>>>>> 41cb4fe (Initialized repo as this project is too old and not a repo)

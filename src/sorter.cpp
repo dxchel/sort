@@ -36,7 +36,8 @@ void Sorter::merge(T *arr, int s, bool f){
 	//Get second ordered half
 	merge(arr+s2, s-s2, false);
 	//Merge halves in order
-	static int x;
+	static T x;
+    int st = s2;
 	for(int i=0; i < s2 && s2 < s; i++){
 		if(arr[s2]<arr[i]){
 			x = arr[s2];
