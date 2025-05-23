@@ -37,7 +37,6 @@ void Sorter::merge(T *arr, int s, bool f){
 	merge(arr+s2, s-s2, false);
 	//Merge halves in order
 	static T x;
-    int st = s2;
 	for(int i=0; i < s2 && s2 < s; i++){
 		if(arr[s2]<arr[i]){
 			x = arr[s2];
@@ -59,18 +58,20 @@ void Sorter::merge(T *arr, int s, bool f){
 template <typename T>
 void Sorter::quick(T *arr, int s, bool f){
 	clock_t clk = clock();
-	//Function Body
 	//If the array has 0 or 1 elements, it's sorted
 	if(s <= 1) return;
-	int ind = s-1;
-	static int x;
+	int x, ind=0;
 	for(int i=0; i < s-1; i++){
-		if(arr[ind]<arr[i]){
-			x = arr[ind];
-			arr[ind] = arr[i];
-			arr[i] = x;
+		if(arr[i]<arr[s-1]){
+			x = arr[i];
+			arr[i] = arr[ind];
+			arr[ind] = x;
+            ind++;
 		}
 	}
+    x = arr[s-1];
+    arr[s-1] = arr[ind];
+    arr[ind] = x;
 	quick(arr, ind, false);
 	quick(arr+ind+1, s-ind-1, false);
 	if(f){
