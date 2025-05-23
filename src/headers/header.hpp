@@ -6,13 +6,13 @@
 #include <sys/types.h>
 
 class Sorter{
-	public:
-		template <typename T>
-		static void bubble(T *arr, int s);
-		template <typename T>
-		static void merge(T *arr, int s, bool f = true);
-		template <typename T>
-		static void quick(T *arr, int s, bool f = true);
+    public:
+        template <typename T>
+        static void bubble(T *arr, int s);
+        template <typename T>
+        static void merge(T *arr, int s, bool f = true);
+        template <typename T>
+        static void quick(T *arr, int s, bool f = true);
 };
 
 template <typename T>
