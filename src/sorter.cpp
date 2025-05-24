@@ -68,20 +68,18 @@ void Sorter::quick(T *arr, int s, bool f){
     clock_t clk = clock();
     //If the array has 0 or 1 elements, it's sorted
     if(s <= 1) return;
-    int x, ind=0;
-    for(int i=0; i < s-1; i++){
-        if(arr[i]<arr[s-1]){
+    int x, i=0, pivot=s-1;
+    while(i < pivot){
+        if(arr[i]>arr[pivot]){
             x = arr[i];
-            arr[i] = arr[ind];
-            arr[ind] = x;
-            ind++;
-        }
+            arr[i] = arr[pivot-1];
+            arr[pivot-1] = arr[pivot];
+            arr[pivot] = x;
+            pivot--;
+        }else i++;
     }
-    x = arr[s-1];
-    arr[s-1] = arr[ind];
-    arr[ind] = x;
-    quick(arr, ind, false);
-    quick(arr+ind+1, s-ind-1, false);
+    quick(arr, pivot, false);
+    quick(arr+pivot+1, s-pivot-1, false);
     if(f){
         double tme = (double)(clock() - clk) / CLOCKS_PER_SEC * 1000000;
         printf(" Quick sort finished after %.0fus!!\n", tme);
@@ -92,8 +90,8 @@ void Sorter::quick(T *arr, int s, bool f){
 //Helper function that prints arrays
 template <typename T>
 void printer(T *a, int s){
-    printf("[%.1f", (double)a[0]);
-    for(int i=1;i < s;i++) printf(",%.1f", (double)a[i]);
+    printf("[ ");
+    for(int i=0;i < s;i++) printf("%.0f ", (double)a[i]);
     printf("]\n");
 }
 

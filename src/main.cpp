@@ -50,7 +50,6 @@ int main(int argc, char** argv){
     }
     wait(nullptr);
     printf("Finished both lambda forked functions in %ldus\n\n\n", clock()-clk);
-    printf("Array to sort: ");
     if(s<100) printer(a, s);
 
     printf("Running sorting functions\n");
